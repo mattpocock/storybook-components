@@ -1,0 +1,167 @@
+$desktopBreakpoint: 700px;
+$breakpointPlusOne: 701px;
+
+@mixin ListElem($display) {
+    li {
+        display: $display;
+        position: relative;
+        margin: 0px 10px;
+        opacity: 0.7;
+        transition: 0.2s;
+        a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            padding: 0px 10px;
+            z-index: 2;
+        }
+
+        ::after {
+            content: '';
+            display: block;
+            height: 3px;
+            width: 0%;
+            position: absolute;
+            background-color: white;
+            bottom: 0;
+            left: 50%;
+            transition: 0.2s all;
+            z-index: 0;
+            opacity: 0;
+        }
+
+        &:hover {
+            opacity: 1;
+            ::after {
+                width: 100%;
+                left: 0;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.Navbar {
+    width: 100%;
+    height: 64px;
+    background-color: #333;
+    padding: 8px 20px;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: space-between;
+}
+
+@keyframes Dropdown {
+    from {
+        max-height: 0px;
+    }
+    to {
+        max-height: 200px;
+    }
+}
+
+@keyframes DropUp {
+    from {
+        max-height: 200px;
+    }
+    to {
+        max-height: 0px;
+    }
+}
+
+.Popover {
+    background-color: #333;
+    padding: 0px 20px;
+    overflow-y: hidden;
+    animation: Dropdown 0.5s;
+    box-sizing: border-box;
+}
+
+.PopOpen {
+    animation: Dropdown 0.5s;
+}
+
+.PopClosed {
+    animation: DropUp 0.5s;
+    max-height: 0px;
+}
+
+.TitleArea {
+    overflow: hidden;
+    * {
+        line-height: 48px;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.MenuButton {
+    @media only screen and (min-width: $desktopBreakpoint) {
+        display: none;
+    }
+    line-height: 48px;
+
+    button {
+        color: white;
+        background-color: transparent;
+        border: 0;
+        font-size: 14px;
+        line-height: 32px;
+        outline: 0;
+        opacity: 0.7;
+        box-sizing: border-box;
+        text-transform: uppercase;
+        font-weight: bold;
+        border: 2px solid white;
+        border-spacing: 2px;
+        border-radius: 2px;
+        padding: 0px 10px;
+        transition: all 0.2s;
+        box-shadow: none;
+        cursor: pointer;
+        &:hover {
+            box-shadow: 0 0 1px 1px white;
+            opacity: 0.9;
+        }
+
+    }
+}
+
+.MobileNav {
+    @media only screen and (min-width: $breakpointPlusOne) {
+        display: none;
+    }
+    ul {
+        line-height: 36px;
+        color: white;
+        list-style-type: none;
+        padding: 0;
+        @include ListElem(inline-block);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+}
+
+.DesktopNav {
+    @media only screen and (max-width: $desktopBreakpoint) {
+        display: none;
+    }
+    line-height: 48px;
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        @include ListElem(inline-block);
+    }
+}
+
+.ActiveLink {
+    opacity: 1 !important;
+    a {
+        opacity: 1;
+    }
+}

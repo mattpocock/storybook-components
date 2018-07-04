@@ -1,25 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import BackdropInsetShadow from '../components/BackdropInsetShadow';
 // import { linkTo } from '@storybook/addon-links';
 import './resets.scss';
 import Jumbotron from '../components/Jumbotron';
-
-storiesOf('BackdropInsetShadow')
-  .add('Default', () => (
-    <BackdropInsetShadow
-      style={{ height: '300px' }}
-    />
-  ))
-  .add('With Children', () => (
-    <BackdropInsetShadow
-      style={{ height: '300px' }}
-    >
-      <h1 style={{ margin: 0 }}>
-        Hello World
-      </h1>
-    </BackdropInsetShadow>
-  ));
 
 storiesOf('Jumbotron')
   .add('Default', () => (
@@ -43,8 +26,12 @@ storiesOf('Jumbotron')
       imgRadius={220}
       style={{
         background: '#001f3f',
-        boxShadow: '0 0 150px inset rgba(0,0,0,0.15)',
+        boxShadow: '0 0 300px inset rgba(0,0,0,0.1)',
         color: 'hsla(210, 100%, 75%, 1.0)',
+      }}
+      imgStyle={{
+        border: 0,
+        boxShadow: 0,
       }}
     >
       <h1

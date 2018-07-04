@@ -7,6 +7,7 @@ const Jumbotron = ({
     imgSrc,
     imgAlt,
     imgRadius,
+    imgStyle,
     ...props
 }) => (
     <div
@@ -22,6 +23,7 @@ const Jumbotron = ({
                 alt={imgAlt}
                 height={imgRadius}
                 width={imgRadius}
+                style={imgStyle}
             />
             <div>
                 {children}
@@ -32,6 +34,7 @@ const Jumbotron = ({
 
 Jumbotron.defaultProps = {
     children: [],
+    imgStyle: {},
 };
 
 Jumbotron.propTypes = {
@@ -43,6 +46,7 @@ Jumbotron.propTypes = {
     imgSrc: PropTypes.string.isRequired,
     imgAlt: PropTypes.string.isRequired,
     imgRadius: PropTypes.number.isRequired,
+    imgStyle: PropTypes.object,
 };
 
 export default Jumbotron;
