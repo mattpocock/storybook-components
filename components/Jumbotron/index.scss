@@ -1,0 +1,19 @@
+.Jumbotron {
+    padding: 120px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.JumbotronInner {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.JumbotronImage {
+    display: flex;
+    border-radius: 50%;
+    box-shadow: 0 0 0pt 3px #ccc;
+    border: 4px solid white;
+    margin: auto;
+}
